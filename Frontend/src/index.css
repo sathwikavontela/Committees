@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes marquee {
+  0% {
+    transform: translateX(70%);
+  }
+  100% {
+    transform: translateX(-70%);
+  }
+}
+
+.marquee {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 20s linear infinite;
+}
+.html,
+body {
+  font-family: sans-serif;
+}
+
+.underline-transition::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: currentColor;
+  transition: width 0.3s ease-in-out;
+  position: absolute;
+  left: 0;
+  bottom: -2px; /* Adjust as needed */
+}
+
+.underline-transition:hover::after,
+.underline-transition:focus::after,
+.underline-transition:active::after {
+  width: 100%;
+}
